@@ -5,19 +5,29 @@
             :key="index"
             :movie="movie" />
         </div>
-        
+        <div class="row col-10 mx-card-container">
+            <SingleShowCard v-for="(tvShow, index) in tvShows"
+            :key="index"
+            :tvShow="tvShow" />
+        </div>
     </div>
 </template>
 
 <script>
     import SingleMovieCard from './SingleMovieCard'
+    import SingleShowCard from './SingleShowCard'
     
     export default {
         components:{
-            SingleMovieCard
+            SingleMovieCard,
+            SingleShowCard
         },
         props:{
             movies:{
+                type: Array,
+                required:true
+            },
+            tvShows:{
                 type: Array,
                 required:true
             },

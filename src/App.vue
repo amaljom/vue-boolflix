@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <Header @search=GetApiRequest />
-    <Main :movies="SearchedMovies" />
+    <Main 
+    :movies="SearchedMovies"
+    :tvShows="searchedTvShow" />
   </div>
 </template>
 
@@ -19,7 +21,8 @@ export default {
   },
   data: function(){
     return{
-      SearchedMovies:[]
+      SearchedMovies:[],
+      searchedTvShow:[]
     }
   },
   methods:{
@@ -27,6 +30,10 @@ export default {
       axios.get('https://api.themoviedb.org/3/search/movie?api_key=66df3909187524734aebd03e217fd826&query='+ name)
         .then((result)=>{
           this.SearchedMovies=result.data.results;
+      });
+      axios.get('https://api.themoviedb.org/3/search/tv?api_key=66df3909187524734aebd03e217fd826&query='+ name)
+        .then((result)=>{
+          this.searchedTvShow=result.data.results;
       });
     }
   }
