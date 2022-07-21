@@ -9,6 +9,7 @@
 
 import Header from './components/Header'
 import Main from './components/Main'
+import axios from 'axios'
 
 export default {
   name: 'App',
@@ -18,12 +19,15 @@ export default {
   },
   data: function(){
     return{
-      name:''
+      SearchedMovies:[]
     }
   },
   methods:{
-    GetApiRequest(nome){
-      console.log(nome);
+    GetApiRequest(name){
+      axios.get('https://api.themoviedb.org/3/search/movie?api_key=66df3909187524734aebd03e217fd826&query='+ name)
+        .then((result)=>{
+          this.SearchedMovies=result.data.results;
+      });
     }
   }
 }
