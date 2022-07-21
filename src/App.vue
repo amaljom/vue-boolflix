@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header @search=GetApiRequest />
-    <Main :SearchedMovies=SearchedMovies />
+    <Main :movies="SearchedMovies" />
   </div>
 </template>
 

@@ -1,9 +1,9 @@
 <template>
     <div >
         <div class="row col-10 mx-card-container">
-            <SingleMovieCard v-for="(searchedMovie, index) in SearchedMovies"
+            <SingleMovieCard v-for="(movie, index) in movies"
             :key="index"
-            :SearchedMovies=SearchedMovies />
+            :movie="movie" />
         </div>
         
     </div>
@@ -17,11 +17,15 @@
             SingleMovieCard
         },
         props:{
-            'SearchedMovies':{
-                type: Array
-            }
+            movies:{
+                type: Array,
+                required:true
+            },
+            
         }
     }
+        
+    
 </script>
 
 <style scoped lang='scss'>
