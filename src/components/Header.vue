@@ -17,3 +17,6 @@ export default {
 <style>
 
 </style>
+
+
+// 66df3909187524734aebd03e217fd826 api key (me lo segno qua per comodità al momentp)
