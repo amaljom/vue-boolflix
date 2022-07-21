@@ -1,7 +1,7 @@
 <template>
   <div class="bg-success">
     <input class="p-2 m-2 " type="text" placeholder="cerca un film" v-model="movieToSearch">
-    <div class="btn btn-primary"> submit </div>   
+    <div class="btn btn-primary" @click="$emit('search',movieToSearch)"> submit </div>   
   </div>
   
 </template>
