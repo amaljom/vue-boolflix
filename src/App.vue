@@ -1,11 +1,12 @@
 <template>
   <div id="app">
-    <Header/>
+    <Header @search=GetApiRequest />
     <Main/>
   </div>
 </template>
 
 <script>
+
 import Header from './components/Header'
 import Main from './components/Main'
 
@@ -14,6 +15,16 @@ export default {
   components: {
     Header,
     Main
+  },
+  data: function(){
+    return{
+      name:''
+    }
+  },
+  methods:{
+    GetApiRequest(nome){
+      console.log(nome);
+    }
   }
 }
 </script>
