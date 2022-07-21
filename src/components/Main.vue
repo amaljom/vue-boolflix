@@ -16,7 +16,11 @@
         components:{
             SingleMovieCard
         },
-        props:['SearchedMovies']
+        props:{
+            'SearchedMovies':{
+                type: Array
+            }
+        }
     }
 </script>
 
