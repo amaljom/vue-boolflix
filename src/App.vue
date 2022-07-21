@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header @search=GetApiRequest />
-    <Main/>
+    <Main :SearchedMovies=SearchedMovies />
   </div>
 </template>
 
@@ -26,6 +26,7 @@ export default {
     GetApiRequest(name){
       axios.get('https://api.themoviedb.org/3/search/movie?api_key=66df3909187524734aebd03e217fd826&query='+ name)
         .then((result)=>{
+          console.log(result.data.results);
           this.SearchedMovies=result.data.results;
       });
     }

@@ -1,18 +1,28 @@
 <template>
-  <div class="mx-auto col-3 bg-danger text-center mt-3 p-4">
-    <h2>titolo</h2>
-    <h2>titolo originale</h2>
-    <h4>lingua</h4>
-    <h4>voto</h4>
-  </div>
+    <div >
+        <div class="row col-10 mx-card-container">
+            <SingleMovieCard v-for="(searchedMovie, index) in SearchedMovies"
+            :key="index"
+            :SearchedMovies=SearchedMovies />
+        </div>
+        
+    </div>
 </template>
 
 <script>
-export default {
-
-}
+    import SingleMovieCard from './SingleMovieCard'
+    
+    export default {
+        components:{
+            SingleMovieCard
+        },
+        props:['SearchedMovies']
+    }
 </script>
 
-<style>
-
+<style scoped lang='scss'>
+.mx-card-container{
+    margin: 0 auto;
+    justify-content: center;
+}
 </style>
