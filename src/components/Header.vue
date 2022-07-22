@@ -5,9 +5,9 @@
       </div>
 
       <div class="search-div">
-          <input class=" input text-white" type="text" placeholder="cerca un film" v-model="movieToSearch">
-          <div class="button">
-              <i class="fa-solid fa-magnifying-glass text-white m-1"  @click="$emit('search',movieToSearch)"></i>
+          <input class=" input text-white" type="text" placeholder="cerca un film" v-model="movieToSearch" @keyup.enter="$emit('search',movieToSearch)">
+          <div class="button" >
+              <i class="fa-solid fa-magnifying-glass text-white m-1" @click="$emit('search',movieToSearch)" ></i>
           </div>
       </div>
   </div>
