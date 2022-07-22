@@ -1,7 +1,7 @@
 <template>
     <div class="mx-card col-2 bg-danger text-center m-3 p-4">
-        <div>
-            <img :src="(`https://image.tmdb.org/t/p/w342 ${movie.poster_path}`)" alt="">
+        <div v-if="movie.poster_path!=null">
+            <img :src="(`https://image.tmdb.org/t/p/w154${movie.poster_path}`)" alt="">
         </div>
         <h3>{{movie.title}}</h3>
         <h3>{{movie.original_title}}</h3>

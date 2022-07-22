@@ -1,5 +1,8 @@
 <template>
     <div class="mx-card col-2 bg-danger text-center m-3 p-4">
+        <div v-if="tvShow.poster_path!=null">
+            <img :src="(`https://image.tmdb.org/t/p/w154${tvShow.poster_path}`)" alt="">
+        </div>
         <h3>{{tvShow.name}}</h3>
         <h3>{{tvShow.original_name}}</h3>
         <div v-if="languageFinder(tvShow.original_language)!=0" class="img-container mx-card">
