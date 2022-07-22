@@ -2,10 +2,10 @@
     <div class="mx-card col-4 bg-dark text-center m-3 g-0">
         <div v-if="movie.poster_path!=null">
             <img class="poster" :src="(`https://image.tmdb.org/t/p/w342${movie.poster_path}`)" alt="">
-            <div class="d-none">
+            <div class="text-white info-div">
                 <h3>{{movie.title}}</h3>
                 <h3>{{movie.original_title}}</h3>
-                <div v-if="languageFinder(movie.original_language)!=0" class="img-container mx-card">
+                <div v-if="languageFinder(movie.original_language)!=0" class="img-container mx-auto">
                     <img class="w-100" :src="languageFinder(movie.original_language)" alt="">
                 </div>
                 <p v-else>{{ movie.original_language }}</p>
@@ -13,9 +13,6 @@
                 :vote="voteToFive(movie.vote_average)"/>
             </div>
         </div>
-        
-        
-        
     </div>
 </template>
 
@@ -63,13 +60,24 @@ export default {
 .mx-card{
     margin: 0 auto;
     width: 342px;
+    height: 490px;
+    &:hover .poster{
+        display: none;
+    }
+    &:hover .info-div{
+        display: inline;
+    }
 }
 .poster{
     width: 342px;
     height: 490px;
     object-fit: cover;
+    
 }
 .img-container{
     width: 40px;
+}
+.info-div{
+    display: none;
 }
 </style>
