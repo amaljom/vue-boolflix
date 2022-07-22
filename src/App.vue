@@ -42,4 +42,7 @@ export default {
 
 <style lang="scss">
 @import "~bootstrap/scss/bootstrap.scss";
+body{
+  background-color: rgb(7, 7, 7);
+}
 </style>

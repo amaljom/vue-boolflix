@@ -3,9 +3,12 @@
       <div>
         <img class="logo" src="https://www.giornaleadige.it/wp-content/uploads/2021/09/Netflix-Logo.png" alt="NON TROVATO">
       </div>
-      <div>
-        <input class="p-2 m-2 " type="text" placeholder="cerca un film" v-model="movieToSearch">
-        <i class="fa-solid fa-magnifying-glass text-light me-3 "  @click="$emit('search',movieToSearch)"></i>  
+
+      <div class="search-div">
+          <input class=" input text-white" type="text" placeholder="cerca un film" v-model="movieToSearch">
+          <div class="button">
+              <i class="fa-solid fa-magnifying-glass text-white m-1"  @click="$emit('search',movieToSearch)"></i>
+          </div>
       </div>
   </div>
   
@@ -21,7 +24,35 @@ export default {
 }
 </script>
 
-<style>
+<style lang='scss'>
+
+
+.button{
+  padding: 5px;
+  background-color: #2f3640;
+  border-radius: 40px;
+  border: solid 2px;
+  &:hover{
+    cursor: pointer;
+  }
+}
+.input{
+  border: none;
+  background: none;
+  outline: none;
+  width: 0px;
+  transition-duration: .7s;
+}
+.search-div{
+  display: flex;
+  background-color: gray;
+  padding: 8px;
+  margin-right: 10px;
+  border-radius: 40px;
+    &:hover .input{
+      width: 200px;
+    }
+}
 .bg-header{
   background-color: rgb(12, 12, 12);
 }
