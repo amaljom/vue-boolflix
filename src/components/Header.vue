@@ -1,7 +1,12 @@
 <template>
-  <div class="bg-success">
-    <input class="p-2 m-2 " type="text" placeholder="cerca un film" v-model="movieToSearch">
-    <div class="btn btn-primary" @click="$emit('search',movieToSearch)"> submit </div>   
+    <div class="bg-dark d-flex justify-content-between align-items-center">
+      <div>
+        <img class="logo" src="https://www.giornaleadige.it/wp-content/uploads/2021/09/Netflix-Logo.png" alt="NON TROVATO">
+      </div>
+      <div>
+        <input class="p-2 m-2 " type="text" placeholder="cerca un film" v-model="movieToSearch">
+      <div class="btn btn-primary" @click="$emit('search',movieToSearch)"> submit </div>   
+    </div>
   </div>
   
 </template>
@@ -17,7 +22,10 @@ export default {
 </script>
 
 <style>
-
+.logo{
+  width: 100px;
+  margin: 10px;
+}
 </style>
 
 

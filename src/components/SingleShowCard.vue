@@ -1,5 +1,5 @@
 <template>
-    <div class="mx-card bg-dark text-center m-3 g-0">
+    <div class="mx-card bg-card text-center m-3 g-0">
         <div v-if="tvShow.poster_path!=null">
             <img class="poster" :src="(`https://image.tmdb.org/t/p/w342${tvShow.poster_path}`)" alt="">
         </div>
@@ -64,7 +64,11 @@ export default {
 </script>
 
 <style scoped lang='scss'>
+
 .mx-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin: 0 auto;
     width: 342px;
     height: 490px;
@@ -86,5 +90,8 @@ export default {
 }
 .info-div{
     display: none;
+}
+.bg-card{
+    background-color: rgb(15, 15, 15);
 }
 </style>
