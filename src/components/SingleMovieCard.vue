@@ -4,8 +4,8 @@
             <img class="poster" :src="(`https://image.tmdb.org/t/p/w342${movie.poster_path}`)" alt="">
         </div>
         <div class="text-white" :class="getClassIfImgNull(movie.poster_path)">
-            <h3>{{movie.title}}</h3>
-            <h3>{{movie.original_title}}</h3>
+            <h3>Titolo: {{movie.title}}</h3>
+            <h3 v-if="(movie.title != movie.original_title )">Titolo originale: {{movie.original_title}}</h3>
             <div v-if="languageFinder(movie.original_language)!=0" class="img-container mx-auto">
                 <img class="w-100" :src="languageFinder(movie.original_language)" alt="">
             </div>
