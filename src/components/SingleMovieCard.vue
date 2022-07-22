@@ -2,16 +2,16 @@
     <div class="mx-card bg-dark text-center m-3 g-0">
         <div v-if="movie.poster_path!=null">
             <img class="poster" :src="(`https://image.tmdb.org/t/p/w342${movie.poster_path}`)" alt="">
-            <div class="text-white info-div">
-                <h3>{{movie.title}}</h3>
-                <h3>{{movie.original_title}}</h3>
-                <div v-if="languageFinder(movie.original_language)!=0" class="img-container mx-auto">
-                    <img class="w-100" :src="languageFinder(movie.original_language)" alt="">
-                </div>
-                <p v-else>{{ movie.original_language }}</p>
-                <Stars
-                :vote="voteToFive(movie.vote_average)"/>
+        </div>
+        <div class="text-white" :class="getClassIfImgNull(movie.poster_path)">
+            <h3>{{movie.title}}</h3>
+            <h3>{{movie.original_title}}</h3>
+            <div v-if="languageFinder(movie.original_language)!=0" class="img-container mx-auto">
+                <img class="w-100" :src="languageFinder(movie.original_language)" alt="">
             </div>
+            <p v-else>{{ movie.original_language }}</p>
+            <Stars
+            :vote="voteToFive(movie.vote_average)"/>
         </div>
     </div>
 </template>
@@ -50,6 +50,11 @@ export default {
         },
         voteToFive(votevalue){
             return Math.ceil(votevalue / 2);
+        },
+        getClassIfImgNull(result){
+            if (result!=null) {
+                return 'info-div';
+            }
         }
     }
 }
