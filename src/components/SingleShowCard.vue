@@ -1,17 +1,27 @@
 <template>
-    <div class="mx-card bg-danger text-center m-3 g-0">
+    <div class="mx-card bg-dark text-center m-3 g-0">
         <div v-if="tvShow.poster_path!=null">
-            <img class="poster" :src="(`https://image.tmdb.org/t/p/w154${tvShow.poster_path}`)" alt="">
+            <img class="poster" :src="(`https://image.tmdb.org/t/p/w342${tvShow.poster_path}`)" alt="">
             <div class="text-white info-div">
                 <h3>{{tvShow.name}}</h3>
                 <h3>{{tvShow.original_name}}</h3>
-                <div v-if="languageFinder(tvShow.original_language)!=0" class="img-container mx-card">
+                <div v-if="languageFinder(tvShow.original_language)!=0" class="img-container mx-auto">
                     <img class="w-100" :src="languageFinder(tvShow.original_language)" alt="">
                 </div>
                 <p v-else>{{ tvShow.original_language }}</p>
                 <Stars
                 :vote="voteToFive(tvShow.vote_average)"/>
             </div>
+        </div>
+        <div v- else class="text-white">
+                <h3>{{tvShow.name}}</h3>
+                <h3>{{tvShow.original_name}}</h3>
+                <div v-if="languageFinder(tvShow.original_language)!=0" class="img-container mx-auto">
+                    <img class="w-100" :src="languageFinder(tvShow.original_language)" alt="">
+                </div>
+                <p v-else>{{ tvShow.original_language }}</p>
+                <Stars
+                :vote="voteToFive(tvShow.vote_average)"/>
         </div>
     </div>
 </template>
