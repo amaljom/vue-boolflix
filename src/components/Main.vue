@@ -1,13 +1,13 @@
 <template>
     <div >
         <div class="row col-10 mx-card-container">
-            <SingleMovieCard v-for="(movie, index) in movies"
-            :key="index"
+            <SingleMovieCard v-for="movie in movies"
+            :key="movie.id"
             :movie="movie" />
         </div>
         <div class="row col-10 mx-card-container">
-            <SingleShowCard v-for="(tvShow, index) in tvShows"
-            :key="index"
+            <SingleShowCard v-for="tvShow in tvShows"
+            :key="tvShow.id"
             :tvShow="tvShow" />
         </div>
     </div>

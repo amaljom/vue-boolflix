@@ -9,7 +9,7 @@
              <img class="w-100" :src="languageFinder(tvShow.original_language)" alt="">
         </div>
         <p v-else>{{ tvShow.original_language }}</p>
-        <p>{{tvShow.vote_average}}</p>
+        <p>{{ voteToFive(tvShow.vote_average) }}</p>
         
     </div>
 </template>
@@ -41,8 +41,13 @@ export default {
                     return 0
                     break;
             }
+        },
+        voteToFive(votevalue){
+            return Math.ceil(votevalue / 2);
         }
     }
+    
+
 }
 
 </script>
