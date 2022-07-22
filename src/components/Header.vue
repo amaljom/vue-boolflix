@@ -32,6 +32,7 @@ export default {
   background-color: #2f3640;
   border-radius: 40px;
   border: solid 2px;
+  transition-duration: .7s;
   &:hover{
     cursor: pointer;
   }
@@ -45,13 +46,17 @@ export default {
 }
 .search-div{
   display: flex;
-  background-color: gray;
+  background-color: rgb(48, 48, 48);
   padding: 8px;
   margin-right: 10px;
   border-radius: 40px;
     &:hover .input{
       width: 200px;
     }
+    &:hover .button{
+      background-color: #b60000;
+    }
+
 }
 .bg-header{
   background-color: rgb(12, 12, 12);
