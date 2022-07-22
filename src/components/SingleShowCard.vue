@@ -9,15 +9,21 @@
              <img class="w-100" :src="languageFinder(tvShow.original_language)" alt="">
         </div>
         <p v-else>{{ tvShow.original_language }}</p>
-        <p>{{ voteToFive(tvShow.vote_average) }}</p>
+        <Stars
+        :vote="voteToFive(tvShow.vote_average)"/>
+        
         
     </div>
 </template>
 
 <script>
+import Stars from './Stars'
 export default {
+    components:{
+        Stars
+    },
     props:['tvShow'],
-
+    
     methods:{
         languageFinder(language){
             switch (language) {

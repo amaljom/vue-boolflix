@@ -9,13 +9,18 @@
              <img class="w-100" :src="languageFinder(movie.original_language)" alt="">
         </div>
         <p v-else>{{ movie.original_language }}</p>
-        <p>{{ voteToFive(movie.vote_average) }}</p>
+        <Stars
+        :vote="voteToFive(movie.vote_average)"/>
         
     </div>
 </template>
 
 <script>
+import Stars from './Stars'
 export default {
+    components:{
+        Stars
+    },
     props:['movie'],
 
     methods:{
