@@ -1,5 +1,5 @@
 <template>
-    <div class="mx-card col-4 bg-dark text-center m-3 g-0">
+    <div class="mx-card bg-dark text-center m-3 g-0">
         <div v-if="movie.poster_path!=null">
             <img class="poster" :src="(`https://image.tmdb.org/t/p/w342${movie.poster_path}`)" alt="">
             <div class="text-white info-div">

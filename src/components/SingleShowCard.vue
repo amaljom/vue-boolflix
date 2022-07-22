@@ -1,18 +1,18 @@
 <template>
-    <div class="mx-card col-2 bg-danger text-center m-3 p-4">
+    <div class="mx-card bg-danger text-center m-3 g-0">
         <div v-if="tvShow.poster_path!=null">
-            <img :src="(`https://image.tmdb.org/t/p/w154${tvShow.poster_path}`)" alt="">
+            <img class="poster" :src="(`https://image.tmdb.org/t/p/w154${tvShow.poster_path}`)" alt="">
+            <div class="text-white info-div">
+                <h3>{{tvShow.name}}</h3>
+                <h3>{{tvShow.original_name}}</h3>
+                <div v-if="languageFinder(tvShow.original_language)!=0" class="img-container mx-card">
+                    <img class="w-100" :src="languageFinder(tvShow.original_language)" alt="">
+                </div>
+                <p v-else>{{ tvShow.original_language }}</p>
+                <Stars
+                :vote="voteToFive(tvShow.vote_average)"/>
+            </div>
         </div>
-        <h3>{{tvShow.name}}</h3>
-        <h3>{{tvShow.original_name}}</h3>
-        <div v-if="languageFinder(tvShow.original_language)!=0" class="img-container mx-card">
-             <img class="w-100" :src="languageFinder(tvShow.original_language)" alt="">
-        </div>
-        <p v-else>{{ tvShow.original_language }}</p>
-        <Stars
-        :vote="voteToFive(tvShow.vote_average)"/>
-        
-        
     </div>
 </template>
 
@@ -61,8 +61,25 @@ export default {
 <style scoped lang='scss'>
 .mx-card{
     margin: 0 auto;
+    width: 342px;
+    height: 490px;
+    &:hover .poster{
+        display: none;
+    }
+    &:hover .info-div{
+        display: inline;
+    }
+}
+.poster{
+    width: 342px;
+    height: 490px;
+    object-fit: cover;
+    
 }
 .img-container{
     width: 40px;
+}
+.info-div{
+    display: none;
 }
 </style>
