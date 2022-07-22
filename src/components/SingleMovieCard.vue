@@ -1,16 +1,20 @@
 <template>
-    <div class="mx-card col-2 bg-danger text-center m-3 p-4">
+    <div class="mx-card col-4 bg-dark text-center m-3 g-0">
         <div v-if="movie.poster_path!=null">
-            <img :src="(`https://image.tmdb.org/t/p/w154${movie.poster_path}`)" alt="">
+            <img class="poster" :src="(`https://image.tmdb.org/t/p/w342${movie.poster_path}`)" alt="">
+            <div class="d-none">
+                <h3>{{movie.title}}</h3>
+                <h3>{{movie.original_title}}</h3>
+                <div v-if="languageFinder(movie.original_language)!=0" class="img-container mx-card">
+                    <img class="w-100" :src="languageFinder(movie.original_language)" alt="">
+                </div>
+                <p v-else>{{ movie.original_language }}</p>
+                <Stars
+                :vote="voteToFive(movie.vote_average)"/>
+            </div>
         </div>
-        <h3>{{movie.title}}</h3>
-        <h3>{{movie.original_title}}</h3>
-        <div v-if="languageFinder(movie.original_language)!=0" class="img-container mx-card">
-             <img class="w-100" :src="languageFinder(movie.original_language)" alt="">
-        </div>
-        <p v-else>{{ movie.original_language }}</p>
-        <Stars
-        :vote="voteToFive(movie.vote_average)"/>
+        
+        
         
     </div>
 </template>
@@ -58,6 +62,12 @@ export default {
 <style scoped lang='scss'>
 .mx-card{
     margin: 0 auto;
+    width: 342px;
+}
+.poster{
+    width: 342px;
+    height: 490px;
+    object-fit: cover;
 }
 .img-container{
     width: 40px;
