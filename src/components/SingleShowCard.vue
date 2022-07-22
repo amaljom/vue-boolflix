@@ -3,7 +3,7 @@
         <div v-if="tvShow.poster_path!=null">
             <img class="poster" :src="(`https://image.tmdb.org/t/p/w342${tvShow.poster_path}`)" alt="">
         </div>
-        <div class="text-white" :class="getClassIfImgNull(tvShow.poster_path)">
+        <div class="text-white center-content" :class="getClassIfImgNull(tvShow.poster_path)">
                 <h3>Titolo: {{tvShow.name}}</h3>
                 <h3 v-if="(tvShow.title != tvShow.original_title )" >Titolo originale: {{tvShow.original_name}}</h3>
                 <div v-if="languageFinder(tvShow.original_language)!=0" class="img-container mx-auto">
@@ -64,11 +64,11 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-
+.center-content{
+    position: relative;
+    top: 80px;
+}
 .mx-card{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     margin: 0 auto;
     width: 342px;
     height: 490px;

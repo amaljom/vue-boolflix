@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="bg-dark">
         <div class="row col-11 mx-card-container">
             <SingleMovieCard v-for="movie in movies"
             :key="movie.id"
