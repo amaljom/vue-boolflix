@@ -4,6 +4,7 @@
     <Main @searchingCast=CastById
       :movies="SearchedMovies"
       :tvShows="searchedTvShow"
+      :casts="searchedMovieCast"
     />
   </div>
 </template>
@@ -41,8 +42,9 @@ export default {
     CastById(id){
       axios.get('https://api.themoviedb.org/3/movie/634649/credits?api_key=66df3909187524734aebd03e217fd826')
         .then((result)=>{
-          console.log(result.data);
-          this.searchedMovieCast=result.data.cast
+          for (let i = 0; i < 5; i++) {
+            this.searchedMovieCast[i]=result.data.cast[i]
+          }
       });
     }
   }

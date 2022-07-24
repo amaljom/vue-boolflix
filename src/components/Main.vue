@@ -4,7 +4,8 @@
             <SingleMovieCard v-for="movie in movies"
             :key="movie.id"
             :movie="movie"
-            @GetCast=MovieCast />
+            @GetCast=MovieCast
+            :casts="casts" />
         </div>
         <div class="row col-10 mx-card-container">
             <SingleShowCard v-for="tvShow in tvShows"
@@ -32,6 +33,10 @@
                 type: Array,
                 required:true
             },
+            casts:{
+                type: Array,
+                required:true
+            }
             
         },
         methods:{

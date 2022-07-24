@@ -14,6 +14,7 @@
             :vote="voteToFive(movie.vote_average)"/>
             <div>
                 <button class="btn btn-primary mt-2" @click="$emit('GetCast', movie.id)">Cast memebers</button>
+                <p v-for="(element, index) in casts" :key="index">{{element.name}}</p>
             </div>
         </div>
     </div>
@@ -25,7 +26,7 @@ export default {
     components:{
         Stars
     },
-    props:['movie'],
+    props:['movie', 'casts'],
 
     methods:{
         languageFinder(language){
