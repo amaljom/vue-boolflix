@@ -12,6 +12,9 @@
             <p v-else>{{ movie.original_language }}</p>
             <Stars
             :vote="voteToFive(movie.vote_average)"/>
+            <div>
+                <button class="btn btn-primary mt-2" @click="$emit('GetCast', movie.id)">Cast memebers</button>
+            </div>
         </div>
     </div>
 </template>

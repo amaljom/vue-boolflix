@@ -1,9 +1,10 @@
 <template>
   <div id="app">
     <Header @search=GetApiRequest />
-    <Main 
-    :movies="SearchedMovies"
-    :tvShows="searchedTvShow" />
+    <Main @GetCast=MovieCast
+      :movies="SearchedMovies"
+      :tvShows="searchedTvShow"
+    />
   </div>
 </template>
 
@@ -22,7 +23,8 @@ export default {
   data: function(){
     return{
       SearchedMovies:[],
-      searchedTvShow:[]
+      searchedTvShow:[],
+      searchedMovieCast:[]
     }
   },
   methods:{
@@ -34,6 +36,12 @@ export default {
       axios.get('https://api.themoviedb.org/3/search/tv?api_key=66df3909187524734aebd03e217fd826&query='+ name)
         .then((result)=>{
           this.searchedTvShow=result.data.results;
+      });
+    },
+    MovieCast(movieId){
+      axios.get('https://api.themoviedb.org/3/movie/634649/credits?api_key=66df3909187524734aebd03e217fd826')
+        .then((result)=>{
+          this.searchedMovieCast=result.data;
       });
     }
   }
