@@ -13,7 +13,6 @@
             <Stars
             :vote="voteToFive(movie.vote_average)"/>
             <div>
-                <button class="btn btn-primary mt-2" @click="$emit('GetCast', movie.id)">Cast memebers</button>
                 <p v-for="(element, index) in casts" :key="index">{{element.name}}</p>
             </div>
         </div>
@@ -59,7 +58,13 @@ export default {
             if (result!=null) {
                 return 'info-div';
             }
+        },
+        getCastMovie(){
+            this.$emit('GetCast', this.movie.id);
         }
+    },
+    created(){
+        this.getCastMovie()
     }
 }
 

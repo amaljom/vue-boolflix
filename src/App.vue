@@ -40,10 +40,11 @@ export default {
       });
     },
     CastById(id){
-      axios.get('https://api.themoviedb.org/3/movie/634649/credits?api_key=66df3909187524734aebd03e217fd826')
+      axios.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=66df3909187524734aebd03e217fd826`)
         .then((result)=>{
           for (let i = 0; i < 5; i++) {
             this.searchedMovieCast[i]=result.data.cast[i]
+            console.log(this.searchedMovieCast);
           }
       });
     }
