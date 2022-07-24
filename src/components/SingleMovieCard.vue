@@ -12,18 +12,20 @@
             <p v-else>{{ movie.original_language }}</p>
             <Stars
             :vote="voteToFive(movie.vote_average)"/>
-            <div>
-                <p v-for="(element, index) in casts" :key="index">{{element.name}}</p>
-            </div>
+            
+            <Credits v-for="cast in casts" :key="cast.id"
+            :cast="cast" />
         </div>
     </div>
 </template>
 
 <script>
 import Stars from './Stars'
+import Credits from './Credits'
 export default {
     components:{
-        Stars
+        Stars,
+        Credits
     },
     props:['movie', 'casts'],
 

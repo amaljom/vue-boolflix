@@ -25,10 +25,12 @@ export default {
     return{
       SearchedMovies:[],
       searchedTvShow:[],
-      searchedMovieCast:[]
+      searchedMovieCast:[],
+
     }
   },
   methods:{
+    
     GetApiRequest(name){
       axios.get('https://api.themoviedb.org/3/search/movie?api_key=66df3909187524734aebd03e217fd826&query='+ name)
         .then((result)=>{
@@ -39,15 +41,18 @@ export default {
           this.searchedTvShow=result.data.results;
       });
     },
+    
     CastById(id){
+      if (this.searchedMovieCast.length>0) {
+              this.searchedMovieCast=[];
+          }
       axios.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=66df3909187524734aebd03e217fd826`)
         .then((result)=>{
-          for (let i = 0; i < 5; i++) {
-            this.searchedMovieCast[i]=result.data.cast[i]
-            console.log(this.searchedMovieCast);
-          }
+            for (let i = 0; i < 5; i++) {
+              this.searchedMovieCast.push(result.data.cast[i])
+            }
       });
-    }
+    },
   }
 }
 </script>
