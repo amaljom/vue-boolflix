@@ -12,9 +12,16 @@
             <p v-else>{{ movie.original_language }}</p>
             <Stars
             :vote="voteToFive(movie.vote_average)"/>
-            <p>
-                {{casts[0].name2.name}}
-            </p>
+            <!-- <div>
+                <p>{{ casts[].name1.name }}</p>
+                <p>{{ casts[].name2.name }}</p>
+                <p>{{ casts[].name3.name }}</p>
+                <p>{{ casts[].name4.name }}</p>
+                <p>{{ casts[].name5.name }}</p>
+            </div> -->
+            
+                
+            
             <!-- <Credits v-for="(cast,index) in casts" :key="index"
             :cast="cast" /> -->
         </div>
@@ -25,10 +32,12 @@
 import Stars from './Stars'
 import Credits from './Credits'
 export default {
+    
     components:{
         Stars,
         Credits
     },
+ 
     props:['movie', 'casts'],
 
     methods:{
@@ -54,6 +63,7 @@ export default {
                     return 0
                     break;
             }
+            
         },
         voteToFive(votevalue){
             return Math.ceil(votevalue / 2);
@@ -63,15 +73,8 @@ export default {
             if (result!=null) {
                 return 'info-div';
             }
-        },
-        getCastMovie(){
-            this.$emit('GetCast', this.movie.id);
-            console.log(this.casts);
         }
     },
-    created(){
-        this.getCastMovie()
-    }
 }
 
 </script>

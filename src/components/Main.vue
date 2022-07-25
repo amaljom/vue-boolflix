@@ -1,11 +1,10 @@
 <template>
     <div>
         <div class="row col-11 mx-card-container">
-            <SingleMovieCard v-for="movie in movies"
-            :key="movie.id"
+            <SingleMovieCard v-for="(movie, index) in movies"
+            :key="index"
             :movie="movie"
-            :casts="casts" 
-            @GetCast=MovieCast />
+            :casts="casts" />
         </div>
         <div class="row col-10 mx-card-container">
             <SingleShowCard v-for="tvShow in tvShows"
@@ -33,17 +32,8 @@
                 type: Array,
                 required:true
             },
-            casts:{
-                type: Array,
-                required:true
-            }
             
         },
-        methods:{
-            MovieCast(id){
-                this.$emit('searchingCast',id);
-            }
-        }
     }
         
     
