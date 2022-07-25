@@ -12,18 +12,9 @@
             <p v-else>{{ movie.original_language }}</p>
             <Stars
             :vote="voteToFive(movie.vote_average)"/>
-            <!-- <div>
-                <p>{{ casts[].name1.name }}</p>
-                <p>{{ casts[].name2.name }}</p>
-                <p>{{ casts[].name3.name }}</p>
-                <p>{{ casts[].name4.name }}</p>
-                <p>{{ casts[].name5.name }}</p>
-            </div> -->
+            <Credits v-for="(movie, index) in movie" :key="index"
+            :movie="movie" />
             
-                
-            
-            <!-- <Credits v-for="(cast,index) in casts" :key="index"
-            :cast="cast" /> -->
         </div>
     </div>
 </template>
@@ -38,7 +29,7 @@ export default {
         Credits
     },
  
-    props:['movie', 'casts'],
+    props:['movie'],
 
     methods:{
         languageFinder(language){

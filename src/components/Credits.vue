@@ -1,13 +1,13 @@
 <template>
 <div>
-    <p>{{cast.name2.name}}</p>
+    <p> {{ movie.cast }} </p>
 </div>
     
 </template>
 
 <script>
 export default {
-    props:['casts'],
+    props:['movie'],
 }
 </script>
 

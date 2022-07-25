@@ -24,13 +24,6 @@ export default {
     return{
       SearchedMovies:[],
       searchedTvShow:[],
-      // castMembers:{
-      //   name1:'',
-      //   name2:'',
-      //   name3:'',
-      //   name4:'',
-      //   name5:''          
-      // }
     }
   },
   methods:{
@@ -39,40 +32,36 @@ export default {
       axios.get('https://api.themoviedb.org/3/search/movie?api_key=66df3909187524734aebd03e217fd826&query='+ name)
         .then((result)=>{
           this.SearchedMovies=result.data.results;
-        });
+        
           for (let i = 0; i < this.SearchedMovies.length; i++) {
             this.SearchedMovies[i].cast=[];
-            axios.get("https://api.themoviedb.org/3/movie/"+ his.SearchedMovies[i].id + "/credits?api_key=66df3909187524734aebd03e217fd826")
-            .then((risult)=>{
+            axios.get("https://api.themoviedb.org/3/movie/"+ this.SearchedMovies[i].id + "/credits?api_key=66df3909187524734aebd03e217fd826")
+            .then((risultato)=>{
                 for (let a = 0; a < 5; a++) {
-                  this.SearchedMovies[i].cast.push(risult.data.cast[a].name);
+                  this.SearchedMovies[i].cast.push(risultato.data.cast[a].name);
                   
                 }
             });
           }
+        });
 
       axios.get('https://api.themoviedb.org/3/search/tv?api_key=66df3909187524734aebd03e217fd826&query='+ name)
         .then((result)=>{
           this.searchedTvShow=result.data.results;
+          
+          for (let k= 0; k < this.SearchedMovies.length; k++) {
+            this.searchedTvShow[k].cast=[];
+            axios.get("https://api.themoviedb.org/3/tv/"+ this.searchedTvShow[k].id + "/credits?api_key=66df3909187524734aebd03e217fd826")
+            .then((risultato)=>{
+                for (let j = 0; j < 5; j++) {
+                  this.searchedTvShow[k].cast.push(risultato.data.cast[j].name);
+                  
+                }
+            });
+          }
       });
     },
     
-      //  axios.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=66df3909187524734aebd03e217fd826`)
-      //    .then((result)=>{
-      //        for (let i = 0; i < array.length; i++) {
-      //          const element = array[i];
-              
-      //        }
-              // this.castMembers={
-              //   name1:result.data.cast[0],
-              //   name2:result.data.cast[1],
-              //   name3:result.data.cast[2],
-              //   name4:result.data.cast[3],
-              //   name5:result.data.cast[4]
-              // };
-              //  this.searchedMovieCast.push(this.castMembers);
-            
-      //  });
   },
   
 }
