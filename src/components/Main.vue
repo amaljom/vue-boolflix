@@ -4,7 +4,7 @@
             <SingleMovieCard v-for="(movie, index) in movies"
             :key="index"
             :movie="movie"
-            :casts="casts" />
+            />
         </div>
         <div class="row col-10 mx-card-container">
             <SingleShowCard v-for="tvShow in tvShows"

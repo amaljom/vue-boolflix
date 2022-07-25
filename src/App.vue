@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header @search=GetApiRequest />
-    <Main 
+    <Main
       :movies="SearchedMovies"
       :tvShows="searchedTvShow"
     />
@@ -24,7 +24,6 @@ export default {
     return{
       SearchedMovies:[],
       searchedTvShow:[],
-      searchedMovieCast:''
       // castMembers:{
       //   name1:'',
       //   name2:'',
@@ -43,12 +42,13 @@ export default {
         });
           for (let i = 0; i < this.SearchedMovies.length; i++) {
             this.SearchedMovies[i].cast=[];
-            this.searchedMovieCast=this.SearchedMovies[i].id;
-            console.log(this.searchedMovieCast);
-              // axios.get("https://api.themoviedb.org/3/movie/"+ castToSearc + "/credits?api_key=66df3909187524734aebd03e217fd826")
-              // .then((result)=>{
-              
-            // });
+            axios.get("https://api.themoviedb.org/3/movie/"+ his.SearchedMovies[i].id + "/credits?api_key=66df3909187524734aebd03e217fd826")
+            .then((risult)=>{
+                for (let a = 0; a < 5; a++) {
+                  this.SearchedMovies[i].cast.push(risult.data.cast[a].name);
+                  
+                }
+            });
           }
 
       axios.get('https://api.themoviedb.org/3/search/tv?api_key=66df3909187524734aebd03e217fd826&query='+ name)
@@ -57,12 +57,12 @@ export default {
       });
     },
     
-      // axios.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=66df3909187524734aebd03e217fd826`)
-      //   .then((result)=>{
-      //       for (let i = 0; i < array.length; i++) {
-      //         const element = array[i];
+      //  axios.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=66df3909187524734aebd03e217fd826`)
+      //    .then((result)=>{
+      //        for (let i = 0; i < array.length; i++) {
+      //          const element = array[i];
               
-      //       }
+      //        }
               // this.castMembers={
               //   name1:result.data.cast[0],
               //   name2:result.data.cast[1],
@@ -72,9 +72,9 @@ export default {
               // };
               //  this.searchedMovieCast.push(this.castMembers);
             
-      // });
-    },
-  // }
+      //  });
+  },
+  
 }
 </script>
 
