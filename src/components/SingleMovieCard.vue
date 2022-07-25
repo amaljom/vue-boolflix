@@ -14,6 +14,7 @@
             :vote="voteToFive(movie.vote_average)"/>
             <Credits
             :elemento="movie.cast" />
+            <p v-for="(genre,index) in movie.genres" :key="index"> {{ genre }}</p>
             
         </div>
     </div>
