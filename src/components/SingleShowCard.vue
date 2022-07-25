@@ -12,15 +12,19 @@
                 <p v-else>{{ tvShow.original_language }}</p>
                 <Stars
                 :vote="voteToFive(tvShow.vote_average)"/>
+                <Credits
+                :elemento="tvShow.cast" />
         </div>
     </div>
 </template>
 
 <script>
 import Stars from './Stars'
+import Credits from './Credits'
 export default {
     components:{
-        Stars
+        Stars,
+        Credits
     },
     props:['tvShow'],
     

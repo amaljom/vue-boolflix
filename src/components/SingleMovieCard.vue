@@ -12,8 +12,8 @@
             <p v-else>{{ movie.original_language }}</p>
             <Stars
             :vote="voteToFive(movie.vote_average)"/>
-            <Credits v-for="(elemento,index) in movie.cast" :key="index"
-            :elemento="elemento" />
+            <Credits
+            :elemento="movie.cast" />
             
         </div>
     </div>

@@ -1,6 +1,7 @@
 <template>
 <div>
-    <p> {{ elemento }} </p>
+    <p v-for="(element,index) in elemento" :key="index" > {{ element }} </p>
+    
 </div>
     
 </template>
