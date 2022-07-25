@@ -1,6 +1,6 @@
 <template>
 <div>
-    <p>{{cast.name}}</p>
+    <p>{{cast.name2.name}}</p>
 </div>
     
 </template>

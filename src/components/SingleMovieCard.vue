@@ -12,9 +12,11 @@
             <p v-else>{{ movie.original_language }}</p>
             <Stars
             :vote="voteToFive(movie.vote_average)"/>
-            
-            <Credits v-for="cast in casts" :key="cast.id"
-            :cast="cast" />
+            <p>
+                {{casts[0].name2.name}}
+            </p>
+            <!-- <Credits v-for="(cast,index) in casts" :key="index"
+            :cast="cast" /> -->
         </div>
     </div>
 </template>
@@ -55,6 +57,7 @@ export default {
         },
         voteToFive(votevalue){
             return Math.ceil(votevalue / 2);
+            
         },
         getClassIfImgNull(result){
             if (result!=null) {
@@ -63,6 +66,7 @@ export default {
         },
         getCastMovie(){
             this.$emit('GetCast', this.movie.id);
+            console.log(this.casts);
         }
     },
     created(){
