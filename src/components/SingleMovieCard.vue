@@ -13,7 +13,7 @@
             <Stars
             :vote="voteToFive(movie.vote_average)"/>
             <Credits v-for="(elemento,index) in movie.cast" :key="index"
-            :elemento="movie" />
+            :elemento="elemento" />
             
         </div>
     </div>
